@@ -36,66 +36,63 @@ export class AppComponent
     });
     this.subject.next({
       type: 'constructor exec',
-      content: 'AppComponent class instance, 访问@input属性name=' + this.name,
+      content: 'AppComponent class instance',
     });
   }
 
   ngOnChanges() {
     this.subject.next({
       type: 'lifecycle',
-      content: 'AppComponent ngOnChanges, 访问@input属性name=' + this.name,
+      content: 'AppComponent ngOnChanges',
     });
   }
 
   ngOnInit() {
     this.subject.next({
       type: 'lifecycle',
-      content: 'AppComponent ngOnInit, 访问@input属性name=' + this.name,
+      content: 'AppComponent ngOnInit',
     });
   }
 
   ngDoCheck() {
     this.subject.next({
       type: 'lifecycle',
-      content: 'AppComponent ngDoCheck, 访问@input属性name=' + this.name,
+      content: 'AppComponent ngDoCheck',
     });
   }
 
   ngAfterContentInit() {
     this.subject.next({
       type: 'lifecycle',
-      content:
-        'AppComponent ngAfterContentInit, 访问@input属性name=' + this.name,
+      content: 'AppComponent ngAfterContentInit',
     });
   }
 
   ngAfterContentChecked() {
     this.subject.next({
       type: 'lifecycle',
-      content:
-        'AppComponent ngAfterContentChecked, 访问@input属性name=' + this.name,
+      content: 'AppComponent ngAfterContentChecked',
     });
   }
 
   ngAfterViewInit() {
     this.subject.next({
       type: 'lifecycle',
-      content: 'AppComponent ngAfterViewInit, 访问@input属性name=' + this.name,
+      content: 'AppComponent ngAfterViewInit',
     });
   }
 
   ngAfterViewChecked() {
     this.subject.next({
       type: 'lifecycle',
-      content:
-        'AppComponent ngAfterViewChecked, 访问@input属性name=' + this.name,
+      content: 'AppComponent ngAfterViewChecked',
     });
   }
 
   ngOnDestroy() {
     this.subject.next({
       type: 'lifecycle',
-      content: 'AppComponent ngOnDestroy, 访问@input属性name=' + this.name,
+      content: 'AppComponent ngOnDestroy',
     });
   }
 }
