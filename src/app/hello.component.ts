@@ -28,7 +28,7 @@ export class HelloComponent
     OnDestroy
 {
   _name: string = '';
-  
+
   subject = window['subject'];
   @Input() set name(n: string) {
     this.subject.next({
@@ -38,11 +38,10 @@ export class HelloComponent
     this._name = n;
   }
   get name() {
-    // 非必要不定义getter，访问次数非常多
-    // this.messages.push({
-    //   type: 'template binding variable get',
-    //   content: 'get name update',
-    // });
+    this.messages.push({
+      type: 'template binding variable get',
+      content: 'get name update',
+    });
     return this._name;
   }
   messages = [];
