@@ -1,12 +1,11 @@
-
-  
-<h3> - 演示生命周期钩子函数调用顺序<br/>
-  - 数据初始化过程
-</h3>
-<p>Start editing to see some magic happen :) </p>
+<h1>Hi, Angular 13!</h1>
+<h3>- 演示生命周期钩子函数调用顺序<br /></h3>
+<p>Start editing to see some magic happen :)</p>
 <ul>
-<li *ngFor="let message of messages">
-  {{message.type}}  => {{message.content}}
-</li>
+  <li *ngFor="let message of messages">
+    <span class="message-type">{{ message.type }}</span>
+    =>
+    <span class="message-content">{{ message.content }}</span>
+  </li>
 </ul>
 <hello [name]="name"></hello>
