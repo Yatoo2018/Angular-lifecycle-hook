@@ -1,3 +1,15 @@
 p {
   font-family: Lato;
 }
+li {
+  border: 1px solid #eee;
+}
+.message-type {
+  display: inline-block;
+  width: 200px;
+}
+.message-content {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+}

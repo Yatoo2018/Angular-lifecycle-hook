@@ -10,6 +10,7 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
+import { BaseComponent } from './base/base.component';
 
 @Component({
   selector: 'hello',
@@ -17,6 +18,7 @@ import {
   styles: [`h1 { font-family: Lato; }`],
 })
 export class HelloComponent
+  extends BaseComponent
   implements
     OnChanges,
     OnInit,
@@ -27,26 +29,9 @@ export class HelloComponent
     AfterViewChecked,
     OnDestroy
 {
-  _name: string = '';
-  
-  subject = window['subject'];
-  @Input() set name(n: string) {
-    this.subject.next({
-      type: '@input',
-      content: 'set name update',
-    });
-    this._name = n;
-  }
-  get name() {
-    // 非必要不定义getter，访问次数非常多
-    // this.messages.push({
-    //   type: 'template binding variable get',
-    //   content: 'get name update',
-    // });
-    return this._name;
-  }
   messages = [];
   constructor() {
+    super();
     this.subject.next({
       type: 'constructor exec',
       content: 'class instance, 访问@input属性name=' + this.name,
