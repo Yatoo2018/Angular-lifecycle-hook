@@ -13,7 +13,7 @@ import {
 
 @Component({
   selector: 'hello',
-  template: `<h1>Hi, {{name}}!</h1>`,
+  template: `<h1>Hello, {{name}}!</h1>`,
   styles: [`h1 { font-family: Lato; }`],
 })
 export class HelloComponent
@@ -27,85 +27,68 @@ export class HelloComponent
     AfterViewChecked,
     OnDestroy
 {
-  _name: string = '';
-  
+  @Input() name;
   subject = window['subject'];
-  @Input() set name(n: string) {
-    this.subject.next({
-      type: '@input',
-      content: 'set name update',
-    });
-    this._name = n;
-  }
-  get name() {
-    // 非必要不定义getter，访问次数非常多
-    // this.messages.push({
-    //   type: 'template binding variable get',
-    //   content: 'get name update',
-    // });
-    return this._name;
-  }
-  messages = [];
   constructor() {
     this.subject.next({
       type: 'constructor exec',
-      content: 'class instance, 访问@input属性name=' + this.name,
+      content: 'class instance',
     });
   }
 
   ngOnChanges() {
     this.subject.next({
       type: 'lifecycle',
-      content: 'ngOnChanges, 访问@input属性name=' + this.name,
+      content: 'ngOnChanges',
     });
   }
 
   ngOnInit() {
     this.subject.next({
       type: 'lifecycle',
-      content: 'ngOnInit, 访问@input属性name=' + this.name,
+      content: 'ngOnInit',
     });
   }
 
   ngDoCheck() {
     this.subject.next({
       type: 'lifecycle',
-      content: 'ngDoCheck, 访问@input属性name=' + this.name,
+      content: 'ngDoCheck',
     });
   }
 
   ngAfterContentInit() {
     this.subject.next({
       type: 'lifecycle',
-      content: 'ngAfterContentInit, 访问@input属性name=' + this.name,
+      content: 'ngAfterContentInit',
     });
   }
 
   ngAfterContentChecked() {
     this.subject.next({
       type: 'lifecycle',
-      content: 'ngAfterContentChecked, 访问@input属性name=' + this.name,
+      content: 'ngAfterContentChecked',
     });
   }
 
   ngAfterViewInit() {
     this.subject.next({
       type: 'lifecycle',
-      content: 'ngAfterViewInit, 访问@input属性name=' + this.name,
+      content: 'ngAfterViewInit',
     });
   }
 
   ngAfterViewChecked() {
     this.subject.next({
       type: 'lifecycle',
-      content: 'ngAfterViewChecked, 访问@input属性name=' + this.name,
+      content: 'ngAfterViewChecked',
     });
   }
 
   ngOnDestroy() {
     this.subject.next({
       type: 'lifecycle',
-      content: 'ngOnDestroy, 访问@input属性name=' + this.name,
+      content: 'ngOnDestroy',
     });
   }
 }
